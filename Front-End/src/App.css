@@ -1,0 +1,40 @@
+
+
+
+
+.scrollable-container { /* Apply this class to your div */
+  overflow-y: auto;
+  max-height: 75vh;
+  padding-right: 0.5rem; /* Adjust as needed */
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 0.25rem; /* Thin scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: gray; /* Thumb color */
+  border-radius: 4px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Track color */
+}
+
+/* Hide scrollbar when not scrolling (optional - use with JS to toggle class) */
+.scrollable-container.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.scrollable-container {
+  scrollbar-width: thin;
+  scrollbar-color: gray #f0f0f0;
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-blue-500 dark:text-black text-white rounded-lg hover:bg-blue-600;
+}
+.btn-secondary {
+  @apply px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600;
+}

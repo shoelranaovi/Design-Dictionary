@@ -1,0 +1,52 @@
+***** Get community by ID
+// normal get commounity by id that simple
+
+**** check membership
+// is normal just check is commounity id is include in user.coomunity list
+
+**** Join or leave community
+///just simple check if already joint remove from community
+
+**** Get community posts
+/// simple thing get by id and return post,isLiked,total isLiked
+
+*** Create post in community
+/// simple thing create post and add to community post list
+
+*** Like or unlike a post
+/// simple thing check if user like post or not and update isLiked count
+
+***Middleware to check if user is admin or moderator
+/// simple thing check if user is admin or moderator and return true or false
+
+*** Update community
+///simple way to update
+
+***Join a community or create a join request
+/// simple thing check if user is already in community or not and return true or false
+
+
+***Leave a community
+/// simple thing check if user is already in community or not and return true or false
+
+*** Get community members
+/// simple thing get by id and return user list
+
+*** Add a moderator
+/// simple thing check if user is already moderator or not and return true or false
+
+***Remove a moderator
+/// simple thing check if user is already moderator or not and return true or false
+
+
+***Remove a member
+/// simple thing check if user is already member or not and return true or false
+
+***Get join requests for a community
+/// simple thing get by id and return user list
+
+***Accept a join request
+///simple change the status pending to accept
+
+***Reject a join request
+///simple change the status pending to reject

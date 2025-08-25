@@ -1,0 +1,16 @@
+***Create a new reel
+//simple create reel
+*** Get all reels
+//simple get all reels
+*** Get reel by ID
+//simple get reel by ID
+*** Delete a reel
+//simple delete reel
+***Like or unlike a reel
+//simple like a reel
+*** Comment on a reel
+//simple comment on a reel
+***Delete comment on a reel
+//simple delete comment on a reel
+***Get all reels by user ID
+//simple get all reels by user ID
