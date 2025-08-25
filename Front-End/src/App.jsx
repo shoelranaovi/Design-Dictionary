@@ -10,7 +10,7 @@ function App() {
     dispatch(checkUser());
   }, []);
   return (
-    <div className="w-full h-full text-black bg-gray-100">
+    <div className="w-full h-full text-black ">
       <Outlet />
     </div>
   );

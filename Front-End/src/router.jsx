@@ -15,6 +15,8 @@ import ComponentList from "./components/ComponentList";
 import AuthList from "./components/AuthList";
 import ButtonLayout from "./components/Button/ButtonLayout";
 import SliderLayout from "./components/Slider/SliderLayout";
+import GotoLayout from "./pages/goto/GoToLayout";
+import HomeGoto from "./pages/goto/Home/Home";
 
 export const route = createBrowserRouter([
   {
@@ -86,6 +88,20 @@ export const route = createBrowserRouter([
       {
         path:"/authList",
         element: <AuthList/>
+      },
+      {
+        
+          path:"/goto",
+          element: <GotoLayout/>,
+          children:[
+            {
+              index: true, 
+              element: <HomeGoto/>
+
+            }
+          ]
+
+        
       }
     ],
   },
