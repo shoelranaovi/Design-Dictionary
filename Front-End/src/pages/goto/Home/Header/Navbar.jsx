@@ -1,8 +1,16 @@
-import { ChevronDown, Menu } from "lucide-react";
-import color from "../asset/color.svg";
-import banner from "../asset/destinations-banner.webp";
+import {
+  CarFront,
+  ChevronDown,
+  CircleUser,
+  Menu,
+  Phone,
+  ShoppingCart,
+} from "lucide-react";
+import color from "../../asset/color.svg";
+import banner from "../../asset/destinations-banner.webp";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import MobileSidebar from "./MobileSideBar";
 
 const menuData = [
   {
@@ -167,13 +175,36 @@ const menuData = [
 
 function Navbar() {
   const [activeCountry, setActiveCountry] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [expandedMenuItem, setExpandedMenuItem] = useState(null);
+  const [expandedCountry, setExpandedCountry] = useState(null);
+  console.log(menuData)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Reset expanded states when closing
+    if (isMobileMenuOpen) {
+      setExpandedMenuItem(null);
+      setExpandedCountry(null);
+    }
+  };
+
+  const toggleMenuItem = (index) => {
+    setExpandedMenuItem(expandedMenuItem === index ? null : index);
+    setExpandedCountry(null); // Reset country expansion when switching menu items
+  };
+
+  const toggleCountry = (countryName) => {
+    setExpandedCountry(expandedCountry === countryName ? null : countryName);
+  };
 
   return (
-    <div className="conatiner mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between  h-16 bg-green-100">
+    <div className="conatiner mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between  h-16 ">
       <div className="flex items-center justify-center gap-2">
         {/* mobile-togle-button */}
         <div className=" lg:hidden p-1 text-bold ">
           <Menu
+          onClick={toggleMobileMenu}
             className="hover:text-orange-400 transition-all  ease-in-out duration-300 cursor-pointer"
             size={24}
           />
@@ -276,7 +307,7 @@ function Navbar() {
                 </div>
               </div>
             ) : (
-                <div
+              <div
                 key={index}
                 className="flex hover:text-orange-400 group relative p-1"
               >
@@ -284,7 +315,7 @@ function Navbar() {
                 <div className="flex items-center gap-2 cursor-pointer font-bold transition-all ease-in-out duration-300">
                   {item.name} <ChevronDown className="w-4 h-4" />
                 </div>
-              
+
                 {/* Dropdown container */}
                 <div
                   className="absolute top-8 left-0 w-[220px] bg-gray-200
@@ -306,7 +337,17 @@ function Navbar() {
           )}
         </div>
       </div>
-      <div>NavRight</div>
+      <div className="flex gap-4 items-center">
+        < ShoppingCart className="hidden lg:flex" />
+
+        <CircleUser className="hidden lg:flex" />
+
+        <Button className=" hidden md:flex   rounded-2xl bg-orange-600 hover:bg-orange-500 text-white gap-2 px-4">
+          {" "}
+          <Phone size={16} /> +00 232 6777{" "}
+        </Button>
+      </div>
+    <MobileSidebar menuData={menuData} isMobileMenuOpen={isMobileMenuOpen} expandedMenuItem={expandedMenuItem} expandedCountry={expandedCountry} toggleMobileMenu={toggleMobileMenu} toggleMenuItem={toggleMenuItem} toggleCountry={toggleCountry} />
     </div>
   );
 }
