@@ -175,10 +175,10 @@ const menuData = [
 
 function Navbar() {
   const [activeCountry, setActiveCountry] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMenuItem, setExpandedMenuItem] = useState(null);
   const [expandedCountry, setExpandedCountry] = useState(null);
-  console.log(menuData)
+  console.log(menuData);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -204,7 +204,7 @@ function Navbar() {
         {/* mobile-togle-button */}
         <div className=" lg:hidden p-1 text-bold ">
           <Menu
-          onClick={toggleMobileMenu}
+            onClick={toggleMobileMenu}
             className="hover:text-orange-400 transition-all  ease-in-out duration-300 cursor-pointer"
             size={24}
           />
@@ -216,6 +216,7 @@ function Navbar() {
         {/* navlist */}
         <div className="hidden lg:flex ml-2 gap-3">
           {menuData.map((item, index) =>
+            // mega-dropdown
             item.isMega ? (
               <div key={index} className="flex  group relative   p-1 ">
                 <div className="flex items-center  gap-2 cursor-pointer hover:text-orange-400 font-bold transition-all ease-in-out duration-300">
@@ -229,7 +230,9 @@ function Navbar() {
                transition-all ease-in-out duration-300 origin-top
                flex justify-center items-center"
                 >
-                  <div className="bg-gray-100 w-full h-[90%] ml-10 px-6 py-4 flex justify-between">
+                  {/* overlay */}
+                  <div className="bg-gray-100 w-full h-[90%] ml-10  px-6 py-4 flex justify-between">
+                    {/* mega-leftside */}
                     <ul className="w-1/4 px-4 border-r-2">
                       {item.countries.map((item, index) => (
                         <li
@@ -255,6 +258,7 @@ function Navbar() {
                         </span>
                       </div>
                     </ul>
+                    {/* mega-main */}
 
                     <div className="w-2/4 p-4">
                       {activeCountry ? (
@@ -286,6 +290,7 @@ function Navbar() {
                         </p>
                       )}
                     </div>
+                    {/* mega-right */}
 
                     <div className="w-1/4 p-4">
                       <div
@@ -338,7 +343,7 @@ function Navbar() {
         </div>
       </div>
       <div className="flex gap-4 items-center">
-        < ShoppingCart className="hidden lg:flex" />
+        <ShoppingCart className="hidden lg:flex" />
 
         <CircleUser className="hidden lg:flex" />
 
@@ -347,7 +352,16 @@ function Navbar() {
           <Phone size={16} /> +00 232 6777{" "}
         </Button>
       </div>
-    <MobileSidebar menuData={menuData} isMobileMenuOpen={isMobileMenuOpen} expandedMenuItem={expandedMenuItem} expandedCountry={expandedCountry} toggleMobileMenu={toggleMobileMenu} toggleMenuItem={toggleMenuItem} toggleCountry={toggleCountry} />
+      {/* mobile-toggle-sidebar */}
+      <MobileSidebar
+        menuData={menuData}
+        isMobileMenuOpen={isMobileMenuOpen}
+        expandedMenuItem={expandedMenuItem}
+        expandedCountry={expandedCountry}
+        toggleMobileMenu={toggleMobileMenu}
+        toggleMenuItem={toggleMenuItem}
+        toggleCountry={toggleCountry}
+      />
     </div>
   );
 }

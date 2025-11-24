@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-const ScrollCounterFramer = () => {
+const ScrollCounterFramer = ({value=1000}) => {
   const [count, setCount] = useState(0);
   const controls = useAnimation();
 
   useEffect(() => {
     const start = 0;
-    const end = 500; // Desired count value
+    const end = value; // Desired count value
 
     const interval = setInterval(() => {
       setCount((prev) => (prev < end ? prev + 5 : end));

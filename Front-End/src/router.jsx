@@ -17,6 +17,7 @@ import ButtonLayout from "./components/Button/ButtonLayout";
 import SliderLayout from "./components/Slider/SliderLayout";
 import GotoLayout from "./pages/goto/GoToLayout";
 import HomeGoto from "./pages/goto/Home/Home";
+import Pactice from "./pages/Pactice/Pactice";
 
 export const route = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ export const route = createBrowserRouter([
           ]
 
         
+      },
+      {
+        path:"/example",
+        element:<Pactice />
       }
     ],
   },
